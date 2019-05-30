@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # local
-        'NAME': 'ncd',
-        'USER': 'ncduser',
-        'PASSWORD': '1',
+        'NAME': 'ncdCMS',
+        'USER': 'murakov',
+        'PASSWORD': '12345',
     }
 }
 
