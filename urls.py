@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('static_windows.urls')),
+    path('', include('ncd_cms.urls')),
+    path('menu/', include('menu.urls')),
     path('admin/', admin.site.urls),
 ]

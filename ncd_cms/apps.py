@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class StaticWindowsConfig(AppConfig):
-    name = 'static_windows'
+    name = 'ncd_cms'
