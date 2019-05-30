@@ -20,4 +20,5 @@ urlpatterns = [
     path('', include('ncd_cms.urls')),
     path('about/', include('about.urls')),
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
 ]
