@@ -18,6 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('ncd_cms.urls')),
-    path('menu/', include('menu.urls')),
+    path('about/', include('about.urls')),
     path('admin/', admin.site.urls),
 ]
