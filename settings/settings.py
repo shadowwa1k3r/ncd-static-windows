@@ -31,8 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'ncd_cms',
-    'about',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'ncd_cms',
+    'about',
 ]
 
 MIDDLEWARE = [
@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # local
-        'NAME': 'ncdCMS',
-        'USER': 'murakov',
-        'PASSWORD': '12345',
+        'NAME': 'ncd',
+        'USER': 'ncduser',
+        'PASSWORD': '1',
     }
 }
 
