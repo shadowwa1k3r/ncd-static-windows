@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>site NCD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static 'fonts/robotocondensed/robotocondensed.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/lato/lato.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/oswald/oswald.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/worksans/worksans.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap-select/css/bootstrap-select.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/magnific-popup/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/slider-pro/css/slider-pro.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css' %}">
+
+        {% block css %}
+
+        {% endblock %}
+
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/media.css' %}" rel="stylesheet">
+
+
+
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'plugins/bootstrap/js/bootstrap.js' %}"></script>
+        <script src="{% static 'plugins/bootstrap/bootstrap-select/js/bootstrap-select.js' %}"></script>
+        <script src="{% static 'plugins/magnific-popup/jquery.magnific-popup.js' %}"></script>
+        <script src="{% static 'plugins/slider-pro/js/jquery.sliderPro.js' %}"></script>
+        <script src="{% static 'plugins/OwlCarousel2-2.3.4/dist/owl.carousel.js' %}"></script>
+        <script src="{% static 'js/jquery.inputmask.bundle.js' %}"></script>
+
+    </head>
+    <body>
+
+        {% block js %}{% endblock %}
+
+    </body>
+</html>
