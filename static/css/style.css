@@ -846,11 +846,14 @@ sidebar navigation
     display: block;
     margin: 0;}
   .sidebar-nav > ul > li > a i {
-    width: 31px;
-    font-size: 24px;
+    width: 32px;
+    font-size: 20px;
     display: inline-block;
     vertical-align: middle;
-    color: #555f6d; }
+    align-items: center;
+    color: #555f6d;
+    justify-content: center;
+    text-align: center; }
   .sidebar-nav > ul > li > a .label {
     float: right;
     margin-top: 6px; }
