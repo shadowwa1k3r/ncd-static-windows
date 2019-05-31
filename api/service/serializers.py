@@ -1,10 +1,10 @@
 from rest_framework.serializers import ModelSerializer
-from about.models import About
+from service.models import Service
 
 
 class ServiceSerializer(ModelSerializer):
     class Meta:
-        model = About
+        model = Service
         fields = (
             'title_uz',
             'title_ru',

@@ -16,7 +16,7 @@ class Service(models.Model):
 
     class Meta:
         db_table = 'cms_service'
-        ordering = ('-id',)
+        ordering = ('id',)
 
     def __str__(self):
         return self.title_ru or self.title_en or self.title_uz or 'asd'

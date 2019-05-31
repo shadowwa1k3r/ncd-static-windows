@@ -53,7 +53,7 @@
                                             {% endif %}
                                                 
                                             
-                                            <td><a href="#" class="deleteButton label label-danger" data-url="{% url 'service-delete-api' about.id %}" ><i class="fas fa-trash"></i></a></td>
+                                            <td><a href="#" class="deleteButton label label-danger" data-url="{% url 'service-delete-api' service.id %}" ><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     {% endfor %}
                                         
@@ -80,7 +80,7 @@
             $(".deleteButton").click(function (e) {
                 e.preventDefault();
 
-                var conrirm = confirm('Delete');
+                var conrirm = confirm('Вы действительно хотите удалить запись?');
 
                 var url = $(this).data("url");
 

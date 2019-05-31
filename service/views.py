@@ -15,5 +15,5 @@ class ServiceCreateView(TemplateView):
 
 class ServiceUpdateView(DetailView):
     template_name = 'service/update.html'
-    model = About
+    model = Service
     context_object_name = 'service'
