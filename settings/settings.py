@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+import socket
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -86,15 +86,26 @@ WSGI_APPLICATION = 'wsgi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # local
-        'NAME': 'ncdCMS',
-        'USER': 'murakov',
-        'PASSWORD': '12345'
+        'NAME': 'ncd',
+        'USER': 'ncduser',
+        'PASSWORD': '1'
     }
 }
+if socket.gethostname() != 'JarvisArch':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            # local
+            'NAME': 'ncdCMS',
+            'USER': 'murakov',
+            'PASSWORD': '12345'
+        }
+    }
 
 
 # Password validation
