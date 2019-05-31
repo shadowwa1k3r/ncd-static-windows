@@ -33,18 +33,27 @@
                                                     <label for="title_ru" class="control-label">Загаловок (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="title_ru" class="form-control" name="title_ru" placeholder="" autocomplete="off">
+                                                    <input type="text" id="title_ru" class="form-control" value="{{service.title_ru}}" name="title_ru" placeholder="" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3 text-right">
+                                                    <label for="short_content_ru" class="control-label">Короткое содержание (ru)</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <textarea type="text" id="short_content_ru" class="moxiecut form-control" name="short_content_ru">{{ service.short_content_ru }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-3 text-right">
                                                     <label for="content_ru" class="control-label">Полное содержание (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" id="content_ru" class="moxiecut form-control" name="content_ru"></textarea>
+                                                    <textarea type="text" id="content_ru" class="moxiecut form-control" name="content_ru">{{service.content_ru}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -57,18 +66,27 @@
                                                 <label for="title_en" class="control-label">Загаловок (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title_en" class="form-control" name="title_en" placeholder="" autocomplete="off">
+                                                <input type="text" id="title_en" class="form-control" name="title_en" placeholder="" autocomplete="off" value="{{services.title_en}}">
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="short_content_en" class="control-label">Короткое содержание (en)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="short_content_en" class="moxiecut form-control" name="short_content_en">{{ service.short_content_en }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
                                                 <label for="content_en" class="control-label">Полное содержание (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content_en" class="moxiecut form-control" name="content_en"></textarea>
+                                                <textarea type="text" id="content_en" class="moxiecut form-control" name="content_en">{{service.content_en}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -80,18 +98,27 @@
                                                 <label for="title_uz" class="control-label">Загаловок (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title_uz" class="form-control" name="title_uz" placeholder="" autocomplete="off">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz" placeholder="" autocomplete="off" value="{{service.title_uz}}">
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="short_content_uz" class="control-label">Короткое содержание (uz)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="short_content_uz" class="moxiecut form-control" name="short_content_uz">{{ service.short_content_uz }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
                                                 <label for="content_uz" class="control-label">Полное содержание (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content_uz" class="moxiecut form-control" name="content_uz"></textarea>
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control" name="content_uz">{{service.content_uz}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -105,8 +132,13 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select name="status" id="status" class="form-control custom-select">
-                                                <option value="1">Активный</option>
+                                                {% if service.status %}
+                                                <option value="1" selected>Активный</option>
                                                 <option value="0"> Не активный </option>
+                                                {% else %}
+                                                <option value="1">Активный</option>
+                                                <option value="0" selected> Не активный </option>
+                                                {% endif %}
                                             </select>
                                         </div>
                                     </div>
@@ -126,7 +158,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="createButton" type="submit" data-url="{% url 'about-create-api'%}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="updateButton" type="submit" class="btn btn-success" data-url="{% url 'service-update-api' about.id %}"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -156,7 +188,7 @@
             plugins: [
             'advlist autolink lists link image charmap preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code',
-            'insertdatetime nonbreaking table contextmenu directionality',
+            'insertdatetime media nonbreaking table contextmenu directionality',
             'emoticons template paste textcolor colorpicker textpattern imagetools codesample'
             ],
             toolbar: 'insertfile undo redo | bold italic sizeselect fontsizeselect | hr alignleft aligncenter alignjustify | bullist numlist | emoticons | code',
@@ -182,37 +214,41 @@
                 fileType: "any",
                 showUpload: false,
                 showCaption: true,
-                overwriteInitial: false,
+                overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
-                    /*"http://lorempixel.com/1920/1080/nature/1",
-                    "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
+                    "{{service.image.url}}"
                 ],
                 initialPreviewConfig: [
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
+                    {caption: "{{service.image.name}}", size: {{service.image.size}}, width: "120px", url: "{$url}", key: 1}
                 ]
             });
         });
     </script>
     <script>
         $(document).ready(function () {
-            $("#createButton").click(function (e) {
+            $("#updateButton").click(function (e) {
                 e.preventDefault();
+
+                var shortContentRu = tinymce.get('short_content_ru').getContent();
+                var shortContentEn = tinymce.get('short_content_en').getContent();
+                var shortContentUz = tinymce.get('short_content_uz').getContent();
 
                 var contentRu = tinymce.get('content_ru').getContent();
                 var contentEn = tinymce.get('content_en').getContent();
                 var contentUz = tinymce.get('content_uz').getContent();
 
+
                 let formData = new FormData();
 
                 formData.append('title_ru', $('input[name="title_ru"]').val());
+                formData.append('short_content_ru', shortContentRu);
                 formData.append('content_ru', contentRu);
                 formData.append('title_en', $('input[name="title_en"]').val());
+                formData.append('short_content_en', shortContentEn);
                 formData.append('content_en', contentEn);
                 formData.append('title_uz', $('input[name="title_uz"]').val());
+                formData.append('short_content_uz', shortContentUz);
                 formData.append('content_uz', contentUz);
 
                 formData.append('status', $('select[name="status"]').val());
@@ -220,15 +256,15 @@
                 for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){
                     formData.append('image', $('#kv-explorer')[0].files[i]);
                 }
-                var url = $("#createButton").data("url");
+                var url = $("#updateButton").data("url");
                 $.ajax({
                     url: url,
                     processData: false,
                     contentType: false,
-                    method: 'POST',
+                    method: 'PUT',
                     data: formData,
                     success: function (data) {
-                        window.location.href = '/about/list';
+                        window.location.href = '/service/list';
                     },
                     error: function (data) {
                         alert('Error');
