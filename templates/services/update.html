@@ -33,7 +33,7 @@
                                                     <label for="title_ru" class="control-label">Загаловок (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="title_ru" class="form-control" value="{{about.title_ru}}" name="title_ru" placeholder="" autocomplete="off">
+                                                    <input type="text" id="title_ru" class="form-control" value="{{service.title_ru}}" name="title_ru" placeholder="" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -43,7 +43,7 @@
                                                     <label for="short_content_ru" class="control-label">Короткое содержание (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" id="short_content_ru" class="moxiecut form-control" name="short_content_ru"></textarea>
+                                                    <textarea type="text" id="short_content_ru" class="moxiecut form-control" name="short_content_ru">{{ service.short_content_ru }}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -53,7 +53,7 @@
                                                     <label for="content_ru" class="control-label">Полное содержание (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" id="content_ru" class="moxiecut form-control" name="content_ru">{{about.content_ru}}</textarea>
+                                                    <textarea type="text" id="content_ru" class="moxiecut form-control" name="content_ru">{{service.content_ru}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,27 +66,27 @@
                                                 <label for="title_en" class="control-label">Загаловок (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title_en" class="form-control" name="title_en" placeholder="" autocomplete="off" value="{{about.title_en}}">
+                                                <input type="text" id="title_en" class="form-control" name="title_en" placeholder="" autocomplete="off" value="{{services.title_en}}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-3 text-right">
-                                                    <label for="short_content_en" class="control-label">Короткое содержание (en)</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <textarea type="text" id="short_content_en" class="moxiecut form-control" name="short_content_en"></textarea>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="short_content_en" class="control-label">Короткое содержание (en)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="short_content_en" class="moxiecut form-control" name="short_content_en">{{ service.short_content_en }}</textarea>
                                             </div>
                                         </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
                                                 <label for="content_en" class="control-label">Полное содержание (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content_en" class="moxiecut form-control" name="content_en">{{about.content_en}}</textarea>
+                                                <textarea type="text" id="content_en" class="moxiecut form-control" name="content_en">{{service.content_en}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -98,27 +98,27 @@
                                                 <label for="title_uz" class="control-label">Загаловок (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title_uz" class="form-control" name="title_uz" placeholder="" autocomplete="off" value="{{about.title_uz}}">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz" placeholder="" autocomplete="off" value="{{service.title_uz}}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-3 text-right">
-                                                    <label for="short_content_uz" class="control-label">Короткое содержание (ru)</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <textarea type="text" id="short_content_uz" class="moxiecut form-control" name="short_content_uz"></textarea>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="short_content_uz" class="control-label">Короткое содержание (uz)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="short_content_uz" class="moxiecut form-control" name="short_content_uz">{{ service.short_content_uz }}</textarea>
                                             </div>
                                         </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
                                                 <label for="content_uz" class="control-label">Полное содержание (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content_uz" class="moxiecut form-control" name="content_uz">{{about.content_uz}}</textarea>
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control" name="content_uz">{{service.content_uz}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select name="status" id="status" class="form-control custom-select">
-                                                {% if about.status %}
+                                                {% if service.status %}
                                                 <option value="1" selected>Активный</option>
                                                 <option value="0"> Не активный </option>
                                                 {% else %}
@@ -158,7 +158,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="updateButton" type="submit" class="btn btn-success" data-url="{% url 'about-update-api' about.id %}"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="updateButton" type="submit" class="btn btn-success" data-url="{% url 'service-update-api' about.id %}"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -217,10 +217,10 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
-                    "{{about.image.url}}"
+                    "{{service.image.url}}"
                 ],
                 initialPreviewConfig: [
-                    {caption: "{{about.image.name}}", size: {{about.image.size}}, width: "120px", url: "{$url}", key: 1}
+                    {caption: "{{service.image.name}}", size: {{service.image.size}}, width: "120px", url: "{$url}", key: 1}
                 ]
             });
         });
@@ -264,7 +264,7 @@
                     method: 'PUT',
                     data: formData,
                     success: function (data) {
-                        window.location.href = '/services/list';
+                        window.location.href = '/service/list';
                     },
                     error: function (data) {
                         alert('Error');
