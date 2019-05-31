@@ -2,14 +2,14 @@ from django.db import models
 
 
 class About(models.Model):
-    title_uz = models.TextField()
-    title_ru = models.TextField()
-    title_en = models.TextField()
-    content_uz = models.TextField()
-    content_ru = models.TextField()
-    content_en = models.TextField()
-    image = models.ImageField()
-    status = models.BooleanField()
+    title_uz = models.TextField(blank=True, default='')
+    title_ru = models.TextField(blank=True, default='')
+    title_en = models.TextField(blank=True, default='')
+    content_uz = models.TextField(blank=True, default='')
+    content_ru = models.TextField(blank=True, default='')
+    content_en = models.TextField(blank=True, default='')
+    image = models.ImageField(blank=True)
+    status = models.BooleanField(blank=True, default=True)
 
     class Meta:
         db_table = 'cms_about'

@@ -44,7 +44,7 @@
                                                 <span>{{ about }}</span>
                                             </td>
                                             
-                                            <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
+                                            <td><a href="{% url 'about-update' about.id %}" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
                                             
                                             {% if about.status %}
                                                 <td><span class="label label-success">Активный</span></td>

@@ -1,6 +1,6 @@
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
-from django.views.generic import TemplateView, ListView, View
+from django.views.generic import TemplateView, ListView, View, DetailView
 from .models import About
 
 
@@ -14,13 +14,7 @@ class AboutCreateView(TemplateView):
     template_name = 'about/create.html'
 
 
-class AboutUpdateView(TemplateView):
+class AboutUpdateView(DetailView):
     template_name = 'about/update.html'
-
-
-class AboutDeleteView(View):
-    def post(self, request):
-        id = self.request.POST.get('about_id')
-        about = About.objects.get(id=id)
-        about.delete()
-        return HttpResponseRedirect(reverse('about-list'))
+    model = About
+    context_object_name = 'about'

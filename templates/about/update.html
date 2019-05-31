@@ -33,7 +33,7 @@
                                                     <label for="title" class="control-label">Загаловок (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="title" class="form-control" name="title" placeholder="" autocomplete="off">
+                                                    <input type="text" id="title" class="form-control" value="{{about.title_ru}}" name="title" placeholder="" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -53,7 +53,7 @@
                                                     <label for="content" class="control-label">Полное содержание (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" id="content" class="moxiecut form-control" name="content"></textarea>
+                                                    <textarea type="text" id="content" class="moxiecut form-control" value="{{about.content_ru}}" name="content"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                                 <label for="title" class="control-label">Загаловок (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title" class="form-control" name="title" placeholder="" autocomplete="off">
+                                                <input type="text" id="title" class="form-control" name="title" placeholder="" autocomplete="off" value="{{about.title_en}}">
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                                 <label for="content" class="control-label">Полное содержание (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content" class="moxiecut form-control" name="content"></textarea>
+                                                <textarea type="text" id="content" class="moxiecut form-control" name="content" value="{{about.content_en}}"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@
                                                 <label for="title" class="control-label">Загаловок (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title" class="form-control" name="title" placeholder="" autocomplete="off">
+                                                <input type="text" id="title" class="form-control" name="title" placeholder="" autocomplete="off" value="{{about.title_uz}}">
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@
                                                 <label for="content" class="control-label">Полное содержание (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content" class="moxiecut form-control" name="content"></textarea>
+                                                <textarea type="text" id="content" class="moxiecut form-control" name="content" value="{{about.content_uz}}"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -142,8 +142,13 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select name="status" id="status" class="form-control custom-select">
+                                                {% if about.status %}
                                                 <option value="active">Активный</option>
                                                 <option value="inactive"> Не активный </option>
+                                                {% else %}
+                                                <option value="inactive">Активный</option>
+                                                <option value="active"> Не активный </option>
+                                                {% endif %}
                                             </select>
                                         </div>
                                     </div>
@@ -155,7 +160,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="file-loading">
-                                                <input id="kv-explorer" type="file" name="file">
+                                                <input id="kv-explorer" type="file" name="file" value="{{about.image.url}}">
                                             </div>
                                         </div>
                                     </div>
