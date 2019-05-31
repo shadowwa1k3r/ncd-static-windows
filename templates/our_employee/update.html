@@ -105,7 +105,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select name="status" id="status" class="form-control custom-select">
-                                                {% if our_employee.status %}
+                                                {% if employee.status %}
                                                 <option value="1" selected>Активный</option>
                                                 <option value="0"> Не активный </option>
                                                 {% else %}
@@ -131,7 +131,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="updateButton" type="submit" class="btn btn-success" data-url="{% url 'our_employee-update-api' our_employee.id %}"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="updateButton" type="submit" class="btn btn-success" data-url="{% url 'employee-update-api' employee.id %}"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -190,10 +190,10 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
-                    "{{our_employee.image.url}}"
+                    "{{employee.image.url}}"
                 ],
                 initialPreviewConfig: [
-                    {caption: "{{our_employee.image.name}}", size: {{our_employee.image.size}}, width: "120px", url: "{$url}", key: 1}
+                    {caption: "{{employee.image.name}}", size: {{employee.image.size}}, width: "120px", url: "{$url}", key: 1}
                 ]
             });
         });
@@ -225,7 +225,7 @@
                     method: 'PUT',
                     data: formData,
                     success: function (data) {
-                        window.location.href = '/our_employee/list';
+                        window.location.href = '/employee/list';
                     },
                     error: function (data) {
                         alert('Error');

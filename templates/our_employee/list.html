@@ -18,7 +18,7 @@
                         <div class="card-main__title">
                             <h2>Наши сотрудники</h2>
                         </div>
-                        <a href="{% url 'our_employee-create' %}" type="button" class="btn btn-info m-t-10 float-right">Добавить</a>
+                        <a href="{% url 'employee-create' %}" type="button" class="btn btn-info m-t-10 float-right">Добавить</a>
                         <!-- Add Contact Popup Model -->
                         <div class="table-responsive">
                             <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list" data-paging="true" data-paging-size="7">
@@ -34,28 +34,28 @@
                                     </tr>
                                 <tbody>
                                     
-                                    {% for our_employee in our_employees %}
+                                    {% for employee in employees %}
                                         <tr>
-                                            <td>{{ our_employee.id }}</td>
+                                            <td>{{ employee.id }}</td>
                                             <td>
-                                                <img src="{{ our_employee.image.url }}" alt="user" width="30" class="" />
+                                                <img src="{{ employee.image.url }}" alt="user" width="30" class="" />
                                             </td>
                                             <td>
-                                                <span>{{ our_employee }}</span>
+                                                <span>{{ employee }}</span>
                                             </td>
                                             <td>
-                                                <span>{{ our_employee.position_ru }}</span>
+                                                <span>{{ employee.position_ru }}</span>
                                             </td>
-                                            <td><a href="{% url 'our_employee-update' our_employee.id %}" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
+                                            <td><a href="{% url 'employee-update' employee.id %}" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
                                             
-                                            {% if our_employee.status %}
+                                            {% if employee.status %}
                                                 <td><span class="label label-success">Активный</span></td>
                                             {% else %}
                                                 <td><span class="label label-danger">Неактивный</span></td>
                                             {% endif %}
                                                 
                                             
-                                            <td><a href="#" class="deleteButton label label-danger" data-url="{% url 'our_employee-delete-api' our_employee.id %}" ><i class="fas fa-trash"></i></a></td>
+                                            <td><a href="#" class="deleteButton label label-danger" data-url="{% url 'employee-delete-api' employee.id %}" ><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     {% endfor %}
                                         
