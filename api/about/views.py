@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, UpdateAPIView
+from rest_framework.generics import CreateAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from about.models import About
@@ -16,9 +16,6 @@ class AboutUpdate(UpdateAPIView):
     lookup_url_kwarg = 'id'
 
 
-class AboutDelete(APIView):
-    def post(self, request):
-        about_id = request.data.get('about_id')
-        about = About.objects.get(id=about_id)
-        about.delete()
-        return Response(status=200)
+class AboutDelete(DestroyAPIView):
+    queryset = About.objects.all()
+    lookup_url_kwarg = 'id'
