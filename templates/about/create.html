@@ -218,11 +218,11 @@
                 formData.append('status', $('select[name="status"]').val());
 
                 for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){
-                    formData.append('file', $('#kv-explorer')[0].files[i]);
+                    formData.append('image', $('#kv-explorer')[0].files[i]);
                 }
 
                 $.ajax({
-                    url: "wtf",
+                    url: "{% url 'about-create-api'%}",
                     processData: false,
                     contentType: false,
                     method: 'POST',

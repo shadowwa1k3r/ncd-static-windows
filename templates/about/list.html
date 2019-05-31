@@ -26,109 +26,39 @@
                                     <tr>
                                         <th width="1%">#</th>
                                         <th width=1%></th>
-                                        <th width="100">Загаловок</th>
-                                        <th width="1%">Age</th>
-                                        <th width="5%">Joining</th>
-                                        <th width="1%">Salery</th>
+                                        <th width="100">Заголовок</th>
+                                        
                                         <th width="1%"></th>
                                         <th width="1%">Статус</th>
                                         <th width="1%"></th>
                                     </tr>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <img src="{% static 'assets/images/users/4.jpg' %}" alt="user" width="30" class="" />
-                                        </td>
-                                        <td>
-                                            <span>Genelia Deshmukh</span>
-                                        </td>
-                                        <td>23</td>
-                                        <td>12.10.2014</td>
-                                        <td>$1200</td>
-                                        <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
-                                        <td><span class="label label-success">Активный</span></td>
-                                        <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>
-                                            <img src="{% static 'assets/images/users/5.jpg' %}" alt="user" width="30" class="" />
-                                        </td>
-                                        <td>
-                                            <span>Arijit Singh</span>
-                                        </td>
-                                        <td>26</td>
-                                        <td>10.09.2014</td>
-                                        <td>$1800</td>
-                                        <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
-                                        <td><span class="label label-danger">Не активный</span></td>
-                                        <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>
-                                            <img src="{% static 'assets/images/users/6.jpg' %}" alt="user" width="30" class="" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Govinda jalan
-                                            </span>
-                                        </td>
-                                        <td>28</td>
-                                        <td>1.10.2013</td>
-                                        <td>$2200</td>
-                                        <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
-                                        <td><span class="label label-success">Активный</span></td>
-                                        <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>
-                                            <img src="{% static 'assets/images/users/7.jpg' %}" alt="user" width="30" class="" />
-                                        </td>
-                                        <td>
-                                            <span>Hritik Roshan</span>
-                                        </td>
-                                        <td>25</td>
-                                        <td>2.10.2017</td>
-                                        <td>$200</td>
-                                        <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
-                                        <td><span class="label label-danger">Не активный</span></td>
-                                        <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>
-                                                <img src="{% static 'assets/images/users/4.jpg' %}" alt="user" width="30" class="" />
+                                    
+                                    {% for about in abouts %}
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <img src="{{ about.image.url }}" alt="user" width="30" class="" />
                                             </td>
-                                        <td>
-                                            <span>John Abraham</span>
-                                        </td>
-                                        <td>23</td>
-                                        <td>10.9.2015</td>
-                                        <td>$1200</td>
-                                        <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
-                                        <td><span class="label label-success">Активный</span></td>
-                                        <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>
-                                            <img src="{% static 'assets/images/users/6.jpg' %}" alt="user" width="30" class="" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Govinda jalan
-                                            </span>
-                                        </td>
-                                        <td>28</td>
-                                        <td>1.10.2013</td>
-                                        <td>$2200</td>
-                                        <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
-                                        <td><span class="label label-success">Активный</span></td>
-                                        <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
+                                            <td>
+                                                <span>{{ about }}</span>
+                                            </td>
+                                            
+                                            <td><a href="#" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
+                                            
+                                            {% if about.status %}
+                                                <td><span class="label label-success">Активный</span></td>
+                                            {% else %}
+                                                <td><span class="label label-danger">Неактивный</span></td>
+                                            {% endif %}
+                                                
+                                            
+                                            <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
+                                        </tr>
+                                    {% endfor %}
+                                        
+                                    
+                                   
                                 </tbody>
                             </table>
                         </div>

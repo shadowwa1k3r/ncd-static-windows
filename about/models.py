@@ -14,5 +14,5 @@ class About(models.Model):
     class Meta:
         db_table = 'cms_about'
 
-    def __init__(self):
+    def __str__(self):
         return self.title_ru or self.title_en or self.title_uz or 'asd'

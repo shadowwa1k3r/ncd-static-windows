@@ -5,7 +5,7 @@ from about.models import About
 class AboutSerializer(ModelSerializer):
     class Meta:
         model = About
-        fields = {
+        fields = (
             'title_uz',
             'title_ru',
             'title_en',
@@ -14,4 +14,4 @@ class AboutSerializer(ModelSerializer):
             'content_en',
             'image',
             'status',
-        }
+        )
