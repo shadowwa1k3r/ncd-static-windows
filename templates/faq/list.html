@@ -16,9 +16,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-main__title">
-                            <h2>ЧАВО Категории</h2>
+                            <h2>ЧАВО</h2>
                         </div>
-                        <a href="#" type="button" class="btn btn-info m-t-10 float-right">Добавить</a>
+                        <a href="{% url 'faq-create' %}" type="button" class="btn btn-info m-t-10 float-right">Добавить</a>
                         <!-- Add Contact Popup Model -->
                         <div class="table-responsive">
                             <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list" data-paging="true" data-paging-size="7">
@@ -26,30 +26,32 @@
                                     <tr>
                                         <th width="1%">#</th>
                                         <th width="100">Заголовок</th>
-                                        
+                                        <th width="1%">Категория</th>
                                         <th width="1%"></th>
                                         <th width="1%">Статус</th>
                                         <th width="1%"></th>
                                     </tr>
                                 <tbody>
                                     
-                                    {% for category in categories %}
+                                    {% for faq in faqs %}
                                         <tr>
-                                            <td>{{ category.id }}</td>
+                                            <td>{{ faq.id }}</td>
                                             <td>
-                                                <span>{{ category }}</span>
+                                                <span>{{ faq }}</span>
                                             </td>
+                                            <td>
+                                                <span>Category</span>
+                                            </td>
+                                            <td><a href="{% url 'faq-update' faq.id %}" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
                                             
-                                            <td><a href="{% url 'category-update' category.id %}" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
-                                            
-                                            {% if category.status %}
+                                            {% if faq.status %}
                                                 <td><span class="label label-success">Активный</span></td>
                                             {% else %}
                                                 <td><span class="label label-danger">Неактивный</span></td>
                                             {% endif %}
                                                 
                                             
-                                            <td><a href="#" class="deleteButton label label-danger" data-url="{% url 'category-delete-api' category.id %}" ><i class="fas fa-trash"></i></a></td>
+                                            <td><a href="#" class="deleteButton label label-danger" data-url="{% url 'faq-delete-api' faq.id %}" ><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     {% endfor %}
                                         
