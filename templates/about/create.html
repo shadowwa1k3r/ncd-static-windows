@@ -126,7 +126,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="createButton" type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="createButton" type="submit" data-url="{% url 'about-create-api'%}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -220,15 +220,15 @@
                 for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){
                     formData.append('image', $('#kv-explorer')[0].files[i]);
                 }
-
+                var url = $("#createButton").data("url");
                 $.ajax({
-                    url: "{% url 'about-create-api'%}",
+                    url: url,
                     processData: false,
                     contentType: false,
                     method: 'POST',
                     data: formData,
                     success: function (data) {
-                        window.location.href('/about/list');
+                        window.location.href = '/about/list';
                     },
                     error: function (data) {
                         alert('Error');

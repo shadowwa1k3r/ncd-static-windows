@@ -343,7 +343,9 @@ Opacity
 
 .op-3 {
   opacity: 0.3; }
-
+.kv-file-remove{
+  display: none;
+}
 /*******************
 font weight
 *******************/
