@@ -86,9 +86,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # local
-        'NAME': 'ncdCMS',  #gitignore
-        'USER': 'murakov',  #gitignore
-        'PASSWORD': '12345',  #gitignore
     }
 }
 
