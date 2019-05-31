@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ncd_cms',
     'about',
     'service',
+    'partner',
 ]
 
 MIDDLEWARE = [
