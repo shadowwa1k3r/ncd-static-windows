@@ -53,7 +53,7 @@
                                             {% endif %}
                                                 
                                             
-                                            <td><a href="#" class="label label-danger"><i class="fas fa-trash"></i></a></td>
+                                            <td><a href="#" class="label label-danger" data-url="{% url 'about-delete-api' about.id %}" ><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     {% endfor %}
                                         

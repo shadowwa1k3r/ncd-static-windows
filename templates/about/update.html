@@ -140,7 +140,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="updateButton" type="submit" class="btn btn-success" data-url="{% url 'about-update-api'%}"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="updateButton" type="submit" class="btn btn-success" data-url="{% url 'about-update-api' about.id %}"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@
     </script>
     <script>
         $(document).ready(function () {
-            $("#createButton").click(function (e) {
+            $("#updateButton").click(function (e) {
                 e.preventDefault();
 
                 var contentRu = tinymce.get('content_ru').getContent();
@@ -235,7 +235,7 @@
                     url: url,
                     processData: false,
                     contentType: false,
-                    method: 'POST',
+                    method: 'PUT',
                     data: formData,
                     success: function (data) {
                         window.location.href = '/about/list';
