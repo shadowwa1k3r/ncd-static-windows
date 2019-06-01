@@ -10,4 +10,5 @@ urlpatterns = [
     path('faq/', include('api.faq.urls')),
     path('slider/', include('api.slider.urls')),
     path('extra/', include('api.extra.urls')),
+    path('edu/', include('api.edu.urls')),
 ]
