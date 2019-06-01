@@ -3,8 +3,7 @@
 
 {% block css %}
     <link href="{% static 'css/pages/tab-page.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/plugins/uploader/css/fileinput.css' %}" media="all" rel="stylesheet" type="text/css"/>
-    <link href="{% static 'assets/plugins/uploader/themes/explorer-fas/theme.css' %}" media="all" rel="stylesheet" type="text/css"/>
+   
 {% endblock %}
 
 {% block content %}
@@ -143,18 +142,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3 text-right">
-                                            <label for="file" class="control-label">Медиа</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="file-loading">
-                                                <input id="kv-explorer" type="file" name="file">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
@@ -198,33 +186,6 @@
         });
     </script>
 
-    <script src="{% static 'assets/plugins/uploader/js/plugins/piexif.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/plugins/sortable.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/fileinput.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/locales/ru.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/locales/uz.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/themes/fas/theme.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/themes/explorer-fas/theme.js' %}" type="text/javascript"></script>
-
-    <script>
-        $(document).ready(function () {
-            $("#kv-explorer").fileinput({
-                'theme': 'explorer-fas',
-                language: 'ru',
-                fileType: "any",
-                showUpload: false,
-                showCaption: true,
-                overwriteInitial: true,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    "{{extra.image.url}}"
-                ],
-                initialPreviewConfig: [
-                    {caption: "{{extra.image.name}}", size: {{extra.image.size}}, width: "120px", url: "{$url}", key: 1}
-                ]
-            });
-        });
-    </script>
     <script>
         $(document).ready(function () {
             $("#updateButton").click(function (e) {
@@ -253,9 +214,7 @@
 
                 formData.append('status', $('select[name="status"]').val());
 
-                for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){
-                    formData.append('image', $('#kv-explorer')[0].files[i]);
-                }
+                
                 var url = $("#updateButton").data("url");
                 $.ajax({
                     url: url,
