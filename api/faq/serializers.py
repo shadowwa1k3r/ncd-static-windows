@@ -15,6 +15,20 @@ class FaqSerializer(ModelSerializer):
             'status',
             )
 
+    def create(self, validated_data):
+        request = self.context['request']
+        if request.POST.get('category'):
+            validated_data['category'] = FaqCategory.objects.get(id=request.POST.get('category'))
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        request = self.context['request']
+        if request.POST.get('category'):
+            validated_data['category'] = FaqCategory.objects.get(id=request.POST.get('category'))
+        else:
+            validated_data['category'] = instance['category']
+        return super().update(instance, validated_data)
+
 
 class FaqCategorySerializer(ModelSerializer):
     faqs = FaqSerializer(many=True)
