@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'employee',
     'document',
     'faq',
+    'slider',
 ]
 
 MIDDLEWARE = [
