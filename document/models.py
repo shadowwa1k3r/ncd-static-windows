@@ -5,12 +5,12 @@ class Document(models.Model):
     name_uz = models.TextField(blank=True, default='')
     name_ru = models.TextField(blank=True, default='')
     name_en = models.TextField(blank=True, default='')
-    file = models.FileField()
+    file = models.FileField(blank=True)
     status = models.BooleanField(default=True)
 
     class Meta:
-        db_table = 'cms_faq'
-        ordered = '-id'
+        db_table = 'cms_document'
+        ordering = ('-id',)
 
     def __str__(self):
         return self.name_ru or self.name_en or self.name_uz or 'asd'

@@ -31,7 +31,7 @@
                                                     <label for="title_ru" class="control-label">Загаловок (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="title_ru" class="form-control" name="title_ru" placeholder="" autocomplete="off">
+                                                    <input type="text" id="title_ru" class="form-control" name="title_ru" placeholder="" autocomplete="off" value="{{ faq.question_ru }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -42,7 +42,7 @@
                                                     <label for="content_ru" class="control-label">Полное содержание (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" id="content_ru" class="moxiecut form-control" name="content_ru"></textarea>
+                                                    <textarea type="text" id="content_ru" class="moxiecut form-control" name="content_ru">{{ faq.answer_ru }}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -55,7 +55,7 @@
                                                 <label for="title_en" class="control-label">Загаловок (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title_en" class="form-control" name="title_en" placeholder="" autocomplete="off">
+                                                <input type="text" id="title_en" class="form-control" name="title_en" placeholder="" autocomplete="off" value="{{ faq.question_en }}">
                                             </div>
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@
                                                 <label for="content_en" class="control-label">Полное содержание (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content_en" class="moxiecut form-control" name="content_en"></textarea>
+                                                <textarea type="text" id="content_en" class="moxiecut form-control" name="content_en">{{ faq.answer_en }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                                 <label for="title_uz" class="control-label">Загаловок (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="title_uz" class="form-control" name="title_uz" placeholder="" autocomplete="off">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz" placeholder="" autocomplete="off" value="{{ faq.question_uz }}">
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                                 <label for="content_uz" class="control-label">Полное содержание (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="content_uz" class="moxiecut form-control" name="content_uz"></textarea>
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control" name="content_uz">{{ faq.answer_uz }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -104,8 +104,18 @@
                                         <div class="col-md-9">
                                             <select name="category" id="category" class="form-control custom-select">
                                                 <option value="">Выберите</option>
-                                                <option value="1"> ЧАВО 1 </option>
-                                                <option value="2"> ЧАВО 2 </option>
+                                                
+                                                {% for category in categories  %}
+                                                
+                                                {% if faq.category == category %}
+                                                    <option selected value="{{ category }}">{{ category }} </option>
+                                                {% endif %}
+                                                    <option value="{{ category }}">{{ category }} </option>
+                                                
+                                                {% endfor %}
+                                                    
+                                                
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -177,14 +187,14 @@
 
                 let formData = new FormData();
 
-                formData.append('title_ru', $('input[name="title_ru"]').val());
-                formData.append('content_ru', contentRu);
-                formData.append('title_en', $('input[name="title_en"]').val());
-                formData.append('content_en', contentEn);
-                formData.append('title_uz', $('input[name="title_uz"]').val());
-                formData.append('content_uz', contentUz);
+                formData.append('question_ru', $('input[name="title_ru"]').val());
+                formData.append('answer_ru', contentRu);
+                formData.append('question_en', $('input[name="title_en"]').val());
+                formData.append('answer_en', contentEn);
+                formData.append('question_uz', $('input[name="title_uz"]').val());
+                formData.append('answer_uz', contentUz);
 
-                formData.append('faq_category', $('select[name="category"]').val());
+                formData.append('category', $('select[name="category"]').val());
                 formData.append('status', $('select[name="status"]').val());
 
                 var url = $("#updateButton").data("url");

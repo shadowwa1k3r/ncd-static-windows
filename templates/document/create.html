@@ -152,14 +152,14 @@
 
                 let formData = new FormData();
 
-                formData.append('title_ru', $('input[name="title_ru"]').val());
-                formData.append('title_en', $('input[name="title_en"]').val());
-                formData.append('title_uz', $('input[name="title_uz"]').val());
+                formData.append('name_ru', $('input[name="title_ru"]').val());
+                formData.append('name_en', $('input[name="title_en"]').val());
+                formData.append('name_uz', $('input[name="title_uz"]').val());
 
                 formData.append('status', $('select[name="status"]').val());
 
                 for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){
-                    formData.append('image', $('#kv-explorer')[0].files[i]);
+                    formData.append('file', $('#kv-explorer')[0].files[i]);
                 }
                 var url = $("#createButton").data("url");
                 $.ajax({

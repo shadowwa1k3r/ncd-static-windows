@@ -104,8 +104,13 @@
                                         <div class="col-md-9">
                                             <select name="category" id="category" class="form-control custom-select">
                                                 <option value="">Выберите</option>
-                                                <option value="1"> ЧАВО 1 </option>
-                                                <option value="2"> ЧАВО 2 </option>
+                                                
+                                                {% for category in categories %}
+                                                    <option value="{{category}}"> {{category}} </option>
+                                                {% endfor %}
+                                                    
+                                                
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -177,14 +182,14 @@
 
                 let formData = new FormData();
 
-                formData.append('title_ru', $('input[name="title_ru"]').val());
-                formData.append('content_ru', contentRu);
-                formData.append('title_en', $('input[name="title_en"]').val());
-                formData.append('content_en', contentEn);
-                formData.append('title_uz', $('input[name="title_uz"]').val());
-                formData.append('content_uz', contentUz);
+                formData.append('question_ru', $('input[name="title_ru"]').val());
+                formData.append('answer_ru', contentRu);
+                formData.append('question_en', $('input[name="title_en"]').val());
+                formData.append('answer_en', contentEn);
+                formData.append('question_uz', $('input[name="title_uz"]').val());
+                formData.append('answer_uz', contentUz);
 
-                formData.append('faq_category', $('select[name="category"]').val());
+                formData.append('category', $('select[name="category"]').val());
                 formData.append('status', $('select[name="status"]').val());
 
                 var url = $("#createButton").data("url");

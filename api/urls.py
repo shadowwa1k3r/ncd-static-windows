@@ -7,4 +7,5 @@ urlpatterns = [
     path('feedback/', include('api.feedback.urls')),
     path('employee/', include('api.employee.urls')),
     path('document/', include('api.document.urls')),
+    path('faq/', include('api.faq.urls')),
 ]
