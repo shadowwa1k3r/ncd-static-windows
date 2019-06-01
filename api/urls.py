@@ -8,4 +8,5 @@ urlpatterns = [
     path('employee/', include('api.employee.urls')),
     path('document/', include('api.document.urls')),
     path('faq/', include('api.faq.urls')),
+    path('slider/', include('api.slider.urls')),
 ]
