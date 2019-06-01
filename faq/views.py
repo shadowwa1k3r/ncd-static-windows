@@ -8,7 +8,7 @@ class FaqListView(ListView):
     context_object_name = 'faqs'
 
     def get_queryset(self):
-        return Faq.objects.filter(category__id=self.request.GET.get('pk'))
+        return Faq.objects.filter(category__id=self.kwargs['pk'])
 
 
 class FaqCreateView(TemplateView):

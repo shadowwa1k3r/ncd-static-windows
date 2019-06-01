@@ -108,9 +108,11 @@
                                                 {% for category in categories  %}
                                                 
                                                 {% if faq.category == category %}
-                                                    <option selected value="{{ category }}">{{ category }} </option>
+                                                    <option selected value="{{ category.id }}">{{ category }} </option>
+                                                {% else %}
+                                                <option value="{{ category.id }}">{{ category }} </option>
                                                 {% endif %}
-                                                    <option value="{{ category }}">{{ category }} </option>
+                                                    
                                                 
                                                 {% endfor %}
                                                     
@@ -136,7 +138,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="updateButton" type="submit" data-url="{% url 'faq-create-api'%}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="updateButton" type="submit" data-url="{% url 'faq-update-api' faq.id %}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -205,7 +207,7 @@
                     method: 'PUT',
                     data: formData,
                     success: function (data) {
-                        window.location.href = '/faq/list';
+                        window.location.href = '/faq/category/list';
                     },
                     error: function (data) {
                         alert('Error');

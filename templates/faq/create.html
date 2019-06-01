@@ -106,7 +106,7 @@
                                                 <option value="">Выберите</option>
                                                 
                                                 {% for category in categories %}
-                                                    <option value="{{category}}"> {{category}} </option>
+                                                    <option value="{{category.id}}"> {{category}} </option>
                                                 {% endfor %}
                                                     
                                                 
@@ -200,7 +200,7 @@
                     method: 'POST',
                     data: formData,
                     success: function (data) {
-                        window.location.href = '/faq/list';
+                        window.location.href = '/faq/category/list';
                     },
                     error: function (data) {
                         alert('Error');
