@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_tag %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -140,7 +141,7 @@
                                 <a href="{% url 'service-list' %}"><i class="mdi mdi-grid"></i> <span class="hide-menu">Услуги</span></a>
                             </li>
                             <li>
-                                <a href="docs.html"><i class="mdi mdi-file-document"></i> <span class="hide-menu">Документы</span></a>
+                                <a href="{% url 'document-list' %}"><i class="mdi mdi-file-document"></i> <span class="hide-menu">Документы</span></a>
                             </li>
                             <li>
                                 <a href="{% url 'partner-list' %}"><i class="fas fa-handshake"></i> <span class="hide-menu">Партнеры</span></a>
@@ -153,9 +154,14 @@
                             </li>
                             <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-network-question"></i> <span class="hide-menu">ЧАВО</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="cats.html">Категория</a></li>
-                                    <li><a href="#">ЧАВО 1</a></li>
-                                    <li><a href="#">ЧАВО 2</a></li>
+                                    <li><a href="{% url 'faq-category-list' %}">Категория</a></li>
+                                    {% tag_categories as fateqories%}
+                                    {% for category in fateqories %}
+                                        <li><a href="{% url 'faq-list' category.id %}">{{category}}</a></li>
+                                    {% endfor %}
+                                        
+                                    
+                                    
                                 </ul>
                             </li>
 

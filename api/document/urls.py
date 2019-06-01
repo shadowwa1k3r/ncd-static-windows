@@ -1,6 +1,6 @@
 from django.urls import path
 
-from api.employee.views import DocumentCreate, DocumentDelete, DocumentUpdate
+from api.document.views import DocumentCreate, DocumentDelete, DocumentUpdate
 
 urlpatterns = [
     path('create/', DocumentCreate.as_view(), name='document-create-api'),
