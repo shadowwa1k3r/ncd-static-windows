@@ -97,15 +97,15 @@
                                             <div class="dw-user-box">
                                                 <div class="u-img"><img src="{% static 'assets/images/users/1.jpg' %}" alt="user"></div>
                                                 <div class="u-text">
-                                                    <h4>Administrator</h4>
-                                                    <p class="text-muted">varun@gmail.com</p>
+                                                    <h4>Администратор</h4>
+                                                    <!--<p class="text-muted">varun@gmail.com</p>-->
                                                 </div>
                                             </div>
                                         </li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                        <li><a href="#"><i class="ti-user"></i> Мой профиль</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                        <li><a href="#"><i class="fa fa-power-off"></i> Выйти</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -125,14 +125,14 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="user-profile"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="{% static 'assets/images/users/profile.png' %}" alt="user" /><span class="hide-menu">Administrator </span></a>
+                            <li class="user-profile"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="{% static 'assets/images/users/profile.png' %}" alt="user" /><span class="hide-menu">Администратор </span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="javascript:void()">My Profile </a></li>
-                                    <li><a href="javascript:void()">Logout</a></li>
+                                    <li><a href="#">Мой профиль</a></li>
+                                    <li><a href="#">Выйти</a></li>
                                 </ul>
                             </li>
                             <li class="nav-devider"></li>
-                            <li class="nav-small-cap">Templates</li>
+                            <li class="nav-small-cap">Cтраницы</li>
                             
                             <li>
                                 <a href="{% url 'about-list' %}"><i class="mdi mdi-grid"></i> <span class="hide-menu">О компании</span></a>
@@ -159,15 +159,13 @@
                                     {% for category in fateqories %}
                                         <li><a href="{% url 'faq-list' category.id %}">{{category}}</a></li>
                                     {% endfor %}
-                                        
-                                    
-                                    
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="{% url 'slider-list' %}"><i class="mdi mdi-settings"></i> <span class="hide-menu">Слайдер</span></a>
+                                <a href="{% url 'slider-list' %}"><i class="mdi mdi-folder-multiple-image"></i> <span class="hide-menu">Слайдер</span></a>
                             </li>
+<<<<<<< HEAD
 
                             <li>
                                 <a href="{% url 'extra-list' %}"><i class="mdi mdi-settings"></i> <span class="hide-menu">Дополнительный</span></a>
@@ -175,6 +173,11 @@
                             <li>
                                 <a href="{% url 'edu-list' %}"><i class="mdi mdi-settings"></i> <span class="hide-menu">Образование</span></a>
                             </li>
+=======
+                            <li>
+                                <a href="{% url 'extra-list' %}"><i class="mdi mdi-settings"></i> <span class="hide-menu">Дополнительный</span></a>
+                            </li>
+>>>>>>> 024bfccceb4b7730b1e7e39c0461fc70159c1c3f
                         </ul>
                     </nav>
                     <!-- End Sidebar navigation -->
