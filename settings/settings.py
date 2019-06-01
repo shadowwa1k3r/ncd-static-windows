@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'document',
     'faq',
     'slider',
+    'extra',
 ]
 
 MIDDLEWARE = [

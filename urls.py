@@ -28,6 +28,7 @@ urlpatterns = [
     path('document/', include('document.urls')),
     path('slider/', include('slider.urls')),
     path('faq/', include('faq.urls')),
+    path('extra/', include('extra.urls')),
     path('api/', include('api.urls')),
     path('admin/', admin.site.urls),
 ]
