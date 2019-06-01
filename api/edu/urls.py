@@ -1,12 +1,9 @@
 from django.urls import path
 
-from api.faq.views import FaqCategoryCreate, FaqCategoryDelete, FaqCategoryUpdate, FaqCreate, FaqUpdate, FaqDelete
+from api.edu.views import EduCreate, EduUpdate, EduDelete
 
 urlpatterns = [
-    path('create/', FaqCreate.as_view(), name='faq-create-api'),
-    path('delete/<int:id>', FaqDelete.as_view(), name='faq-delete-api'),
-    path('update/<int:id>', FaqUpdate.as_view(), name='faq-update-api'),
-    path('category/create/', FaqCategoryCreate.as_view(), name='faq-category-create-api'),
-    path('category/delete/<int:id>', FaqCategoryDelete.as_view(), name='faq-category-delete-api'),
-    path('category/update/<int:id>', FaqCategoryUpdate.as_view(), name='faq-category-update-api'),
+    path('create/', EduCreate.as_view(), name='edu-create-api'),
+    path('delete/<int:id>', EduDelete.as_view(), name='edu-delete-api'),
+    path('update/<int:id>', EduUpdate.as_view(), name='edu-update-api'),
 ]

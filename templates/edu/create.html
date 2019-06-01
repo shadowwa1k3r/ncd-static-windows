@@ -165,7 +165,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="createButton" type="submit" data-url="{% url 'about-create-api'%}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="createButton" type="submit" data-url="{% url 'edu-create-api'%}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -263,14 +263,20 @@
                 var contentRu = tinymce.get('content_ru').getContent();
                 var contentEn = tinymce.get('content_en').getContent();
                 var contentUz = tinymce.get('content_uz').getContent();
+                var shortContentRu = tinymce.get('short_content_ru').getContent();
+                var shortContentEn = tinymce.get('short_content_en').getContent();
+                var shortContentUz = tinymce.get('short_content_uz').getContent();
 
                 let formData = new FormData();
 
                 formData.append('title_ru', $('input[name="title_ru"]').val());
+                formData.append('short_content_ru', shortContentRu);
                 formData.append('content_ru', contentRu);
                 formData.append('title_en', $('input[name="title_en"]').val());
+                formData.append('short_content_en', shortContentEn);
                 formData.append('content_en', contentEn);
                 formData.append('title_uz', $('input[name="title_uz"]').val());
+                formData.append('short_content_uz', shortContentUz);
                 formData.append('content_uz', contentUz);
 
                 formData.append('status', $('select[name="status"]').val());

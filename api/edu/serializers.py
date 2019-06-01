@@ -21,15 +21,16 @@ class EduSerializer(ModelSerializer):
 
     def create(self, validated_data):
         request = self.context['request']
-        if request.POST.getfiles('docs'):
-            for doc in request.POST.getfiles('docs'):
+        if request.FILES['docs']:
+            for doc in request.FILES['docs']:
+                print(doc)
                 file = Documents(document=doc)
                 file.save()
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
         request = self.context['request']
-        if request.POST.getfiles('docs'):
+        if request.FILES['docs']:
             pass
         else:
             validated_data['category'] = instance.category
