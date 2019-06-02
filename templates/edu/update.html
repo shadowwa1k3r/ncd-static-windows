@@ -161,10 +161,10 @@
                                             <label for="docs" class="control-label">Текущие документы</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <ul>
-                                                <li><i class="mdi mdi-file-document"></i> asdsdasdsd.pdf <span class="deleteDocs" data-id="wtf"> <i class="mdi bmdi-delete-empty"></i></span></li>
-                                                <li><i class="mdi mdi-file-document"></i> asdsdasdsd.pdf <span class="deleteDocs" data-id="wtf"> <i class="mdi bmdi-delete-empty"></i></span></li>
-                                                <li><i class="mdi mdi-file-document"></i> asdsdasdsd.pdf <span class="deleteDocs" data-id="wtf"> <i class="mdi bmdi-delete-empty"></i></span></li>
+                                            <ul class="edu-documents">
+                                                <li><i class="mdi mdi-file-document"></i> asdsda asd sdasdasdsdsd.pdf <span class="deleteDoc" data-url="wtf"> <i class="mdi mdi-delete"></i></span></li>
+                                                <li><i class="mdi mdi-file-document"></i> asdsdasdsd.pdf <span class="deleteDoc" data-url="wtf"> <i class="mdi mdi-delete"></i></span></li>
+                                                <li><i class="mdi mdi-file-document"></i> asdsdsad sd asdsd.pdf <span class="deleteDoc" data-url="wtf"> <i class="mdi mdi-delete"></i></span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -258,25 +258,41 @@
                 overwriteInitial: false,
                 initialPreviewAsData: true,
                 initialPreview: [
-                    {% for doc in edu.document_set.all %}
-                    "{% static 'assets/images/doc.png' %}",
-                    {% endfor %}
-                   
+
                 ],
                 initialPreviewConfig: [
 
-                    {% for doc in edu.document_set.all %}
-                        {caption: "{{doc.document.name}}", size: {{doc.document.size}}, width: "120px", url: "{$url}", key: {{ forloop.counter }}},
-                    {% endfor %}
-
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
                 ]
             });
         });
     </script>
     <script>
+        $(document).ready(function () {
+            $(".deleteDoc").click(function (e) {
+                e.preventDefault();
+
+                var conf = confirm('Delete');
+
+                var url = $(this).data("url");
+
+                if(conf){
+                    console.log(conf);
+                    $.ajax({
+                        url: url,
+                        processData: false,
+                        method: 'DELETE',
+                        success: function (data) {
+                            location.reload();
+                        },
+                        error: function (data) {
+                            alert("Error");
+                        }
+                    });
+                }
+
+
+            });
+        });
         $(document).ready(function () {
             $("#updateButton").click(function (e) {
                 e.preventDefault();
