@@ -24,11 +24,11 @@ class ProfileView(TemplateView):
 
 class LoginPageView(View):
     def get(self, request):
-        return render(request, 'login.html')
+        return render(request, 'auth/login.html')
 
     def post(self, request):
-        username = request.POST.get('login')
-        pwd = request.POST.get('pass')
+        username = request.POST.get('username')
+        pwd = request.POST.get('password')
         user = authenticate(username=username, password=pwd)
         if user:
             login(request, user)
@@ -38,7 +38,7 @@ class LoginPageView(View):
                 return HttpResponseRedirect(reverse('index'))
             else:
                 return HttpResponseRedirect(reverse('index'))
-        return render(request, 'login.html', {'error': True})
+        return render(request, 'auth/login.html', {'error': True})
 
 
 class LogoutView(LoginRequiredMixin, View):
