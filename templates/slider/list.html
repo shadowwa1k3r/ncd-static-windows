@@ -80,12 +80,12 @@
             $(".deleteButton").click(function (e) {
                 e.preventDefault();
 
-                var conrirm = confirm('Delete');
+                var conf = confirm('Delete');
 
                 var url = $(this).data("url");
 
-                if(confirm){
-                    console.log(conrirm);
+                if(conf){
+                    console.log(conf);
                     $.ajax({
                         url: url,
                         processData: false,

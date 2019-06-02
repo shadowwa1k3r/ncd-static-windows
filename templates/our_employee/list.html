@@ -82,12 +82,12 @@
             $(".deleteButton").click(function (e) {
                 e.preventDefault();
 
-                var conrirm = confirm('Вы действительно хотите удалить запись?');
+                var conf = confirm('Вы действительно хотите удалить запись?');
 
                 var url = $(this).data("url");
 
-                if(confirm){
-                    console.log(conrirm);
+                if(conf){
+                    console.log(conf);
                     $.ajax({
                         url: url,
                         processData: false,
