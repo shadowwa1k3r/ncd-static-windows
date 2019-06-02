@@ -59,22 +59,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3 text-right">
-                                            <label for="file" class="control-label">Аватар</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="file-loading">
-                                                <input id="kv-explorer" type="file" name="file">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
+                               <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="updateButton" type="submit" data-url="{% url 'profile-create-api'%}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
+                                            <button id="updateButton" type="submit" data-url="{% url 'profile-update-api'%}" class="btn btn-success"> <i class="fa fa-check"></i> Отправить</button>
                                             <button type="button" class="btn btn-inverse">Отмена</button>
                                         </div>
                                     </div>
@@ -95,37 +83,7 @@
 
 {% block js %}
 
-    <script src="{% static 'assets/plugins/uploader/js/plugins/piexif.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/plugins/sortable.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/fileinput.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/locales/ru.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/js/locales/uz.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/themes/fas/theme.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/plugins/uploader/themes/explorer-fas/theme.js' %}" type="text/javascript"></script>
-
-    <script>
-        $(document).ready(function () {
-            $("#kv-explorer").fileinput({
-                'theme': 'explorer-fas',
-                language: 'ru',
-                fileType: "any",
-                showUpload: false,
-                showCaption: true,
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    /*"http://lorempixel.com/1920/1080/nature/1",
-                    "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
-                ],
-                initialPreviewConfig: [
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
-                ]
-            });
-        });
-    </script>
+    
     <script>
         $(document).ready(function () {
             $("#updateButton").click(function (e) {
@@ -133,14 +91,12 @@
 
                 let formData = new FormData();
 
-                formData.append('login', $('input[name="login"]').val());
-                formData.append('old_pass', $('input[name="old_pass"]').val());
-                formData.append('new_pass', $('input[name="new_pass"]').val());
+                formData.append('username', $('input[name="login"]').val());
+                formData.append('old_password', $('input[name="old_pass"]').val());
+                formData.append('new_password', $('input[name="new_pass"]').val());
                 formData.append('confirm_pass', $('input[name="confirm_pass"]').val());
 
-                for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){
-                    formData.append('image', $('#kv-explorer')[0].files[i]);
-                }
+
                 var url = $("#updateButton").data("url");
                 $.ajax({
                     url: url,

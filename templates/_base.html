@@ -103,7 +103,7 @@
                                             </div>
                                         </li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#"><i class="ti-user"></i> Мой профиль</a></li>
+                                        <li><a href="{% url 'profile' %}"><i class="ti-user"></i> Мой профиль</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a href="#"><i class="fa fa-power-off"></i> Выйти</a></li>
                                     </ul>
@@ -127,7 +127,7 @@
                         <ul id="sidebarnav">
                             <li class="user-profile"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="{% static 'assets/images/users/profile.png' %}" alt="user" /><span class="hide-menu">Администратор </span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="#">Мой профиль</a></li>
+                                    <li><a href="{% url 'profile' %}">Мой профиль</a></li>
                                     <li><a href="#">Выйти</a></li>
                                 </ul>
                             </li>
