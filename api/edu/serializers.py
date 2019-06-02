@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from edu.models import Documents, Edu
+from edu.models import Document, Edu
 
 
 class EduSerializer(ModelSerializer):
@@ -20,18 +20,26 @@ class EduSerializer(ModelSerializer):
             )
 
     def create(self, validated_data):
+        instance = Edu(**validated_data)
+        instance.save()
+
         request = self.context['request']
-        if request.FILES['docs']:
-            for doc in request.FILES['docs']:
-                print(doc)
-                file = Documents(document=doc)
-                file.save()
-        return super().create(validated_data)
+
+        docs = request.FILES.getlist('docs')
+        if docs:
+            for i in docs:
+                Document.objects.create(document=i, edu=instance)
+
+        # edu = super().create(validated_data)
+        # if self.initial_data.getlist('docs'):
+        #     for file_item in self.initial_data.getlist('docs'):
+        #         file = Document(document=file_item, edu=edu)
+        #         file.save()
+        return instance
 
     def update(self, instance, validated_data):
-        request = self.context['request']
-        if request.FILES['docs']:
+        if self.initial_data.getlist('docs'):
             pass
         else:
-            validated_data['category'] = instance.category
+            pass
         return super().update(instance, validated_data)

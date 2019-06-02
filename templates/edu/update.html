@@ -43,7 +43,7 @@
                                                     <label for="short_content_ru" class="control-label">Короткое содержание (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" id="short_content_ru" class="moxiecut form-control" name="short_content_ru"></textarea>
+                                                    <textarea type="text" id="short_content_ru" class="moxiecut form-control" name="short_content_ru">{{edu.content_ru}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                                 <label for="short_content_en" class="control-label">Короткое содержание (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea type="text" id="short_content_en" class="moxiecut form-control" name="short_content_en"></textarea>
+                                                <textarea type="text" id="short_content_en" class="moxiecut form-control" name="short_content_en">{{edu.content_en}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -258,11 +258,17 @@
                 overwriteInitial: false,
                 initialPreviewAsData: true,
                 initialPreview: [
-                    /*"http://lorempixel.com/1920/1080/nature/1",
-                    "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
+                    {% for doc in edu.document_set.all %}
+                    "{% static 'assets/images/doc.png' %}",
+                    {% endfor %}
+                   
                 ],
                 initialPreviewConfig: [
+
+                    {% for doc in edu.document_set.all %}
+                        {caption: "{{doc.document.name}}", size: {{doc.document.size}}, width: "120px", url: "{$url}", key: {{ forloop.counter }}},
+                    {% endfor %}
+
                     /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
                     {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
                     {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
@@ -278,16 +284,22 @@
                 var contentRu = tinymce.get('content_ru').getContent();
                 var contentEn = tinymce.get('content_en').getContent();
                 var contentUz = tinymce.get('content_uz').getContent();
+                var shortContentRu = tinymce.get('short_content_ru').getContent();
+                var shortContentEn = tinymce.get('short_content_en').getContent();
+                var shortContentUz = tinymce.get('short_content_uz').getContent();
+
 
                 let formData = new FormData();
 
                 formData.append('title_ru', $('input[name="title_ru"]').val());
+                formData.append('short_content_ru', shortContentRu);
                 formData.append('content_ru', contentRu);
                 formData.append('title_en', $('input[name="title_en"]').val());
+                formData.append('short_content_en', shortContentEn);
                 formData.append('content_en', contentEn);
                 formData.append('title_uz', $('input[name="title_uz"]').val());
+                formData.append('short_content_uz', shortContentUz);
                 formData.append('content_uz', contentUz);
-
                 formData.append('status', $('select[name="status"]').val());
 
                 for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){

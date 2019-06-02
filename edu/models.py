@@ -22,7 +22,7 @@ class Edu(models.Model):
         return self.title_ru or self.title_en or self.title_uz or 'asd'
 
 
-class Documents(models.Model):
+class Document(models.Model):
     document = models.FileField(blank=True)
     edu = models.ForeignKey(Edu, on_delete=models.CASCADE)
 
