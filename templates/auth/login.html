@@ -33,7 +33,7 @@
 				<div class="login-page__logo"><img src="{% static 'login/images/logo_login.svg' %}" alt="">
 				</div>
 				<div class="login-page__form-container">
-					<form method="POST" class="login-page__form disabledBlock">
+					<form method="POST" class="login-page__form">
                         {% csrf_token %}
                         <input type="hidden" value="" id="login_loginer" name="loginer">
 						<div class="login-page__form-inp">

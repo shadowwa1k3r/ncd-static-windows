@@ -25,7 +25,7 @@
                                             <label for="login" class="control-label">Логин</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="login" class="form-control" name="login" placeholder="" autocomplete="off">
+                                            <input type="text" id="login" class="form-control" name="login" value="{{request.user.username}}" placeholder="" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -99,10 +99,11 @@
 
                 var url = $("#updateButton").data("url");
                 $.ajax({
+                    headers: { "X-CSRFToken": "{{csrf_token}}" },
                     url: url,
                     processData: false,
                     contentType: false,
-                    method: 'POST',
+                    method: 'PUT',
                     data: formData,
                     success: function (data) {
                         window.location.href = '/';

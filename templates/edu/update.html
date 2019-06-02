@@ -162,9 +162,11 @@
                                         </div>
                                         <div class="col-md-9">
                                             <ul class="edu-documents">
-                                                <li><i class="mdi mdi-file-document"></i> asdsda asd sdasdasdsdsd.pdf <span class="deleteDoc" data-url="wtf"> <i class="mdi mdi-delete"></i></span></li>
-                                                <li><i class="mdi mdi-file-document"></i> asdsdasdsd.pdf <span class="deleteDoc" data-url="wtf"> <i class="mdi mdi-delete"></i></span></li>
-                                                <li><i class="mdi mdi-file-document"></i> asdsdsad sd asdsd.pdf <span class="deleteDoc" data-url="wtf"> <i class="mdi mdi-delete"></i></span></li>
+                                                
+                                                {% for doc in edu.document_set.all  %}
+                                                <li><i class="mdi mdi-file-document"></i> <a href="{{doc.document.url}}">{{ doc.document.name}}</a>  <span class="deleteDoc" data-url="{% url 'document-delete-api' doc.id %}"> <i class="mdi mdi-delete"></i></span></li>
+                                                {% endfor %}
+                                                    
                                             </ul>
                                         </div>
                                     </div>

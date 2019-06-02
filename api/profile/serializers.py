@@ -5,5 +5,6 @@ class UserSerializer(serializers.Serializer):
     """
     password and username change serializer.
     """
-    old_password = serializers.CharField(required=True)
-    new_password = serializers.CharField(required=True)
+    old_password = serializers.CharField(required=False)
+    new_password = serializers.CharField(required=False)
+    username = serializers.CharField(required=False)
