@@ -256,6 +256,7 @@
                 }
                 var url = $("#createButton").data("url");
                 $.ajax({
+                    headers: { "X-CSRFToken": "{{csrf_token}}" },
                     url: url,
                     processData: false,
                     contentType: false,

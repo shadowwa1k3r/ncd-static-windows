@@ -83,6 +83,7 @@
                 if(conf){
                     console.log(conf);
                     $.ajax({
+                        headers: { "X-CSRFToken": "{{csrf_token}}" },
                         url: url,
                         processData: false,
                         method: 'DELETE',
