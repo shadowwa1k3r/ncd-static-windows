@@ -29,7 +29,7 @@
                                         <th width="100">Заголовок</th>
                                         
                                         <th width="1%"></th>
-                                        <th width="1%">Статус</th>
+                                       
                                         <th width="1%"></th>
                                     </tr>
                                 <tbody>
@@ -44,11 +44,7 @@
                                             
                                             <td><a href="{% url 'extra-update' extra.id %}" class="label label-info"><i class="fas fa-edit"></i> Ред-ть</a></td>
                                             
-                                            {% if extra.status %}
-                                                <td><span class="label label-success">Активный</span></td>
-                                            {% else %}
-                                                <td><span class="label label-danger">Неактивный</span></td>
-                                            {% endif %}
+                                            
                                                 
                                             
                                             <td><a href="#" class="deleteButton label label-danger" data-url="{% url 'extra-delete-api' extra.id %}" ><i class="fas fa-trash"></i></a></td>
