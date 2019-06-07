@@ -124,19 +124,7 @@
                                 </div>
                             </div>
                             <div class="p-20">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3 text-right">
-                                            <label for="status" class="control-label">Статус</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <select name="status" id="status" class="form-control custom-select">
-                                                <option value="1">Активный</option>
-                                                <option value="0"> Не активный </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 
                                 <div class="form-group">
                                     <div class="row">
@@ -207,8 +195,7 @@
                 formData.append('short_content_uz', shortContentUz);
                 formData.append('content_uz', contentUz);
 
-                formData.append('status', $('select[name="status"]').val());
-
+               
                 
                 var url = $("#createButton").data("url");
                 $.ajax({
