@@ -38,8 +38,9 @@ class EduSerializer(ModelSerializer):
         return instance
 
     def update(self, instance, validated_data):
-        if self.initial_data.getlist('docs'):
-            pass
-        else:
-            pass
+        request = self.context['request']
+        docs = request.FILES.getlist('docs')
+        if docs:
+            for i in docs:
+                Document.objects.create(document=i, edu=instance)
         return super().update(instance, validated_data)
