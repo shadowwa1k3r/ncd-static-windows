@@ -138,10 +138,14 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
+                {% if slider.image %}
                     "{{slider.image.url}}"
+                {% endif %}
                 ],
                 initialPreviewConfig: [
+                {% if slider.image %}
                     {caption: "{{slider.image.name}}", size: {{slider.image.size}}, width: "120px", url: "{$url}", key: 1}
+                {% endif %}
                 ]
             });
         });

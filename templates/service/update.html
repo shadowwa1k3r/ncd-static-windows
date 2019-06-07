@@ -217,10 +217,14 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
+                    {% if service.image %}
                     "{{service.image.url}}"
+                    {% endif %}
                 ],
                 initialPreviewConfig: [
+                {% if service.image %}
                     {caption: "{{service.image.name}}", size: {{service.image.size}}, width: "120px", url: "{$url}", key: 1}
+                    {% endif %}
                 ]
             });
         });

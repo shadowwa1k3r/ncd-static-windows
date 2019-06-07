@@ -33,7 +33,7 @@
                                                     <label for="name_ru" class="control-label">Имя (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="name_ru" class="form-control" name="name_ru" placeholder="" autocomplete="off">
+                                                    <input type="text" id="name_ru" class="form-control" value="{{ feedback.name_ru }}" name="name_ru" placeholder="" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -43,7 +43,7 @@
                                                     <label for="position_ru" class="control-label">Должность (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="position_ru" class="form-control" name="position_ru" placeholder="" autocomplete="off">
+                                                    <input type="text" id="position_ru" class="form-control" value="{{ feedback.position_ru }}" name="position_ru" placeholder="" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                                 <label for="name_en" class="control-label">Имя (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="name_en" class="form-control" name="name_en" placeholder="" autocomplete="off">
+                                                <input type="text" id="name_en" class="form-control" value="{{ feedback.name_en }}" name="name_en" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                                 <label for="position_en" class="control-label">Должность (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="position_en" class="form-control" name="position_en" placeholder="" autocomplete="off">
+                                                <input type="text" id="position_en" class="form-control" value="{{ feedback.position_en }}" name="position_en" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@
                                                 <label for="name_uz" class="control-label">Имя (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="name_uz" class="form-control" name="name_uz" placeholder="" autocomplete="off">
+                                                <input type="text" id="name_uz" class="form-control" value="{{ feedback.name_uz }}" name="name_uz" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                                 <label for="position_uz" class="control-label">Должность (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="position_uz" class="form-control" name="position_uz" placeholder="" autocomplete="off">
+                                                <input type="text" value="{{feedback.position_uz}}" id="position_uz" class="form-control" name="position_uz" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -247,10 +247,14 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
+                {% if feedback.image %}
                     "{{feedback.image.url}}"
+                {% endif %}
                 ],
                 initialPreviewConfig: [
+                {% if feedback.image %}
                     {caption: "{{feedback.image.name}}", size: {{feedback.image.size}}, width: "120px", url: "{$url}", key: 1}
+                {% endif %}
                 ]
             });
         });
@@ -271,15 +275,15 @@
 
                 let formData = new FormData();
 
-                formData.append('name_ru', $('input[name="title_ru"]').val());
+                formData.append('name_ru', $('input[name="name_ru"]').val());
                 formData.append('position_ru', $('input[name="position_ru"]').val());
                 formData.append('short_content_ru', shortContentRu);
                 formData.append('content_ru', contentRu);
-                formData.append('name_en', $('input[name="title_en"]').val());
+                formData.append('name_en', $('input[name="name_en"]').val());
                 formData.append('position_en', $('input[name="position_en"]').val());
                 formData.append('short_content_en', shortContentEn);
                 formData.append('content_en', contentEn);
-                formData.append('name_uz', $('input[name="title_uz"]').val());
+                formData.append('name_uz', $('input[name="name_uz"]').val());
                 formData.append('position_uz', $('input[name="position_uz"]').val());
                 formData.append('short_content_uz', shortContentUz);
                 formData.append('content_uz', contentUz);

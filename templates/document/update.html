@@ -141,7 +141,9 @@
                     "{% static 'assets/images/doc.png' %}"
                 ],
                 initialPreviewConfig: [
+                {% if document.file %}
                     {caption: "{{document.file.name}}", size: {{document.file.size}}, width: "120px", url: "{$url}", key: 1}
+                {% endif %}
                 ]
             });
         });

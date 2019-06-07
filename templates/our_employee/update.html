@@ -33,7 +33,7 @@
                                                     <label for="name_ru" class="control-label">Имя (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="name_ru" class="form-control" name="name_ru" placeholder="" autocomplete="off">
+                                                    <input type="text" id="name_ru" class="form-control" value="{{employee.name_ru}}" name="name_ru" placeholder="" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -43,7 +43,7 @@
                                                     <label for="position_ru" class="control-label">Должность (ru)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="position_ru" class="form-control" name="position_ru" placeholder="" autocomplete="off">
+                                                    <input type="text" id="position_ru" class="form-control" value="{{employee.position_ru}}" name="position_ru" placeholder="" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -57,7 +57,7 @@
                                                 <label for="name_en" class="control-label">Имя (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="name_en" class="form-control" name="name_en" placeholder="" autocomplete="off">
+                                                <input type="text" id="name_en" class="form-control" value="{{employee.name_en}}" name="name_en" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +67,7 @@
                                                 <label for="position_en" class="control-label">Должность (en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="position_en" class="form-control" name="position_en" placeholder="" autocomplete="off">
+                                                <input type="text" id="position_en" class="form-control" value="{{employee.position_en}}" name="position_en" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@
                                                 <label for="name_uz" class="control-label">Имя (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="name_uz" class="form-control" name="name_uz" placeholder="" autocomplete="off">
+                                                <input type="text" id="name_uz" class="form-control" value="{{employee.name_uz}}" name="name_uz" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                                 <label for="position_uz" class="control-label">Должность (uz)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="position_uz" class="form-control" name="position_uz" placeholder="" autocomplete="off">
+                                                <input type="text" id="position_uz" class="form-control" value="{{employee.position_uz}}" name="position_uz" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -190,10 +190,14 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
+                {% if employee.image %}
                     "{{employee.image.url}}"
+                {% endif %}
                 ],
                 initialPreviewConfig: [
+                {% if employee.image %}
                     {caption: "{{employee.image.name}}", size: {{employee.image.size}}, width: "120px", url: "{$url}", key: 1}
+                {% endif %}
                 ]
             });
         });

@@ -199,10 +199,14 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
+                {% if about.image %}
                     "{{about.image.url}}"
+                {% endif %}
                 ],
                 initialPreviewConfig: [
+                {% if about.image %}
                     {caption: "{{about.image.name}}", size: {{about.image.size}}, width: "120px", url: "{$url}", key: 1}
+                {% endif %}
                 ]
             });
         });

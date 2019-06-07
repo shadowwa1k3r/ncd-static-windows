@@ -245,10 +245,14 @@
                 overwriteInitial: true,
                 initialPreviewAsData: true,
                 initialPreview: [
+                {% if edu.image %}
                     "{{edu.image.url}}"
                 ],
+                {% endif %}
                 initialPreviewConfig: [
+                {% if edu.image %}
                     {caption: "{{edu.image.name}}", size: {{edu.image.size}}, width: "120px", url: "{$url}", key: 1}
+                {% endif %}
                 ]
             });
             $("#kv-docs").fileinput({
