@@ -5,7 +5,7 @@ class Document(models.Model):
     name_uz = models.TextField(blank=True, default='')
     name_ru = models.TextField(blank=True, default='')
     name_en = models.TextField(blank=True, default='')
-    file = models.FileField(blank=True)
+    file = models.FileField(upload_to='cms/document/', blank=True)
     status = models.BooleanField(default=True)
 
     class Meta:

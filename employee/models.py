@@ -5,7 +5,7 @@ class Employee(models.Model):
     name_uz = models.TextField(blank=True, default='')
     name_ru = models.TextField(blank=True, default='')
     name_en = models.TextField(blank=True, default='')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, upload_to='cms/employee/')
     status = models.BooleanField(default=True)
     position_uz = models.TextField(blank=True, default='')
     position_en = models.TextField(blank=True, default='')

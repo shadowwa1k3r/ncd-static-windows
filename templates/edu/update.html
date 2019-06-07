@@ -247,8 +247,9 @@
                 initialPreview: [
                 {% if edu.image %}
                     "{{edu.image.url}}"
-                ],
                 {% endif %}
+                ],
+                
                 initialPreviewConfig: [
                 {% if edu.image %}
                     {caption: "{{edu.image.name}}", size: {{edu.image.size}}, width: "120px", url: "{$url}", key: 1}
@@ -333,6 +334,7 @@
                 }
                 var url = $("#updateButton").data("url");
                 $.ajax({
+                    headers: { "X-CSRFToken": "{{csrf_token}}" },
                     url: url,
                     processData: false,
                     contentType: false,

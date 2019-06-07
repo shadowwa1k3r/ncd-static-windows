@@ -38,7 +38,12 @@
                                         <tr>
                                             <td>{{ feedback.id }}</td>
                                             <td>
+                                                
+                                                {% if feedback.image %}
                                                 <img src="{{ feedback.image.url }}" alt="user" width="30" class="" />
+                                                {% endif %}
+                                                    
+                                                
                                             </td>
                                             <td>
                                                 <span>{{ feedback }}</span>

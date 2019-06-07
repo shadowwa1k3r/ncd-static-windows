@@ -5,7 +5,7 @@ class Slider(models.Model):
     title_uz = models.TextField(blank=True, default='')
     title_en = models.TextField(blank=True, default='')
     title_ru = models.TextField(blank=True, default='')
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True, upload_to='cms/slider/')
     status = models.BooleanField(default=True)
 
     class Meta:

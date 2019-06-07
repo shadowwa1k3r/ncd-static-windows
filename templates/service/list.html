@@ -38,7 +38,12 @@
                                         <tr>
                                             <td>{{ service.id }}</td>
                                             <td>
+                                                
+                                                {% if service.image %}
                                                 <img src="{{ service.image.url }}" alt="user" width="30" class="" />
+                                                {% endif %}
+                                                    
+                                                
                                             </td>
                                             <td>
                                                 <span>{{ service }}</span>

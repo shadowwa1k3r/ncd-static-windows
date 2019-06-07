@@ -11,7 +11,7 @@ class Service(models.Model):
     content_uz = models.TextField(blank=True, default='')
     content_ru = models.TextField(blank=True, default='')
     content_en = models.TextField(blank=True, default='')
-    image = models.FileField(blank=True)
+    image = models.FileField(blank=True, upload_to='cms/service/')
     status = models.BooleanField(default=True)
 
     class Meta:

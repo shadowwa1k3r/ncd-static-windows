@@ -38,7 +38,12 @@
                                         <tr>
                                             <td>{{ slider.id }}</td>
                                             <td>
+                                                
+                                                {% if slider.image %}
                                                 <img src="{{ slider.image.url }}" alt="user" width="30" class="" />
+                                                {% endif %}
+                                                    
+                                                
                                             </td>
                                             <td>
                                                 <span>{{ slider }}</span>

@@ -8,7 +8,7 @@ class About(models.Model):
     content_uz = models.TextField(blank=True, default='')
     content_ru = models.TextField(blank=True, default='')
     content_en = models.TextField(blank=True, default='')
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to='cms/about/', blank=True, null=True)
     status = models.BooleanField(blank=True, default=True)
 
     class Meta:

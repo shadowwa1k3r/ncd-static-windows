@@ -11,7 +11,7 @@ class Edu(models.Model):
     content_ru = models.TextField(blank=True, default='')
     content_en = models.TextField(blank=True, default='')
     content_uz = models.TextField(blank=True, default='')
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to='cms/edu/', blank=True)
     status = models.BooleanField(default=True)
 
     class Meta:
@@ -23,7 +23,7 @@ class Edu(models.Model):
 
 
 class Document(models.Model):
-    document = models.FileField(blank=True)
+    document = models.FileField(blank=True, upload_to='cms/edu/documents/')
     edu = models.ForeignKey(Edu, on_delete=models.CASCADE)
 
     class Meta:

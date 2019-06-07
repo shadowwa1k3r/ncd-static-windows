@@ -38,7 +38,12 @@
                                         <tr>
                                             <td>{{ employee.id }}</td>
                                             <td>
+                                                
+                                                {% if employee.image %}
                                                 <img src="{{ employee.image.url }}" alt="user" width="30" class="" />
+                                                {% endif %}
+                                                    
+                                                
                                             </td>
                                             <td>
                                                 <span>{{ employee }}</span>

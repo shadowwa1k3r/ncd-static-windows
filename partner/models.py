@@ -8,7 +8,7 @@ class Partner(models.Model):
     content_uz = models.TextField(blank=True, default='')
     content_en = models.TextField(blank=True, default='')
     content_ru = models.TextField(blank=True, default='')
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True, upload_to='cms/partner/')
     status = models.BooleanField(default=True)
 
     class Meta:
