@@ -164,7 +164,7 @@
                                             <ul class="edu-documents">
                                                 
                                                 {% for doc in edu.document_set.all  %}
-                                                <li><i class="mdi mdi-file-document"></i> <a href="{{doc.document.url}}">{{ doc.document.name}}</a>  <span class="deleteDoc" data-url="{% url 'document-delete-api' doc.id %}"> <i class="mdi mdi-delete"></i></span></li>
+                                                <li><i class="mdi mdi-file-document"></i> <a href="{{doc.document.url}}">{{ doc.document.name}}</a>  <span class="deleteDoc" data-url="{% url 'edu-document-delete-api' doc.id %}"> <i class="mdi mdi-delete"></i></span></li>
                                                 {% endfor %}
                                                     
                                             </ul>
