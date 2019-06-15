@@ -160,3 +160,25 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = reverse_lazy('login')
+
+REF_UTF = {
+    '&ensp;': ' ',
+    '&emsp;': '  ',
+    '&thinsp;': ' ',
+    '&ndash;': '-',
+    '&mdash;': '—',
+    '&lsquo;': '‘',
+    '&rsquo;': '’',
+    '&sbquo;': '‚',
+    '&ldquo;': '“',
+    '&rdquo;': '”',
+    '&bdquo;': '„',
+    '&hellip;': '…',
+    '&permil;': '‰',
+    '&Prime;': '″',
+    '&lsaquo;': '‹',
+    '&rsaquo;': '›',
+    '&oline;': '‾',
+    '&frasl;': '⁄',
+    '&euro;': '€',
+}

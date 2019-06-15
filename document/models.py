@@ -7,6 +7,7 @@ class Document(models.Model):
     name_en = models.TextField(blank=True, default='')
     file = models.FileField(upload_to='cms/document/', blank=True)
     status = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=50, default='', blank=True)
 
     class Meta:
         db_table = 'cms_document'

@@ -10,6 +10,7 @@ class About(models.Model):
     content_en = models.TextField(blank=True, default='')
     image = models.ImageField(upload_to='cms/about/', blank=True, null=True)
     status = models.BooleanField(blank=True, default=True)
+    slug = models.SlugField(max_length=50, default='', blank=True)
 
     class Meta:
         db_table = 'cms_about'

@@ -13,6 +13,7 @@ class Edu(models.Model):
     content_uz = models.TextField(blank=True, default='')
     image = models.ImageField(upload_to='cms/edu/', blank=True)
     status = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=50, default='', blank=True)
 
     class Meta:
         db_table = 'cms_education'

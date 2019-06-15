@@ -10,6 +10,7 @@ class Partner(models.Model):
     content_ru = models.TextField(blank=True, default='')
     image = models.ImageField(blank=True, upload_to='cms/partner/')
     status = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=50, default='', blank=True)
 
     class Meta:
         db_table = 'cms_partner'

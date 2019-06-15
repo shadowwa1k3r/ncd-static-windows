@@ -10,6 +10,7 @@ class Employee(models.Model):
     position_uz = models.TextField(blank=True, default='')
     position_en = models.TextField(blank=True, default='')
     position_ru = models.TextField(blank=True, default='')
+    slug = models.SlugField(max_length=50, default='', blank=True)
 
     class Meta:
         db_table = 'cms_employee'

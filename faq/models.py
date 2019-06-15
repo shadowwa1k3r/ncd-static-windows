@@ -6,6 +6,7 @@ class FaqCategory(models.Model):
     name_en = models.TextField(blank=True)
     name_ru = models.TextField(blank=True)
     status = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=50, default='', blank=True)
 
     class Meta:
         db_table = 'cms_faq_category'
@@ -24,6 +25,7 @@ class Faq(models.Model):
     answer_en = models.TextField(blank=True)
     category = models.ForeignKey(FaqCategory, related_name='category_of_faq', on_delete=models.CASCADE)
     status = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=50, default='', blank=True)
 
     class Meta:
         db_table = 'cms_faq'
