@@ -41,40 +41,40 @@ def create_about_slug(instance, **kwargs):
 @receiver(post_save, sender=Document)
 def create_document_slug(instance, **kwargs):
     if not instance.slug:
-        if instance.title_ru:
-            instance.slug = slugify(instance.title_ru, allow_unicode=True)+str(instance.id)
+        if instance.name_ru:
+            instance.slug = slugify(instance.name_ru, allow_unicode=True)+str(instance.id)
         else:
-            instance.slug = slugify(instance.title_en)+str(instance.id)
+            instance.slug = slugify(instance.name_en)+str(instance.id)
         instance.save()
 
 
 @receiver(post_save, sender=Employee)
 def create_employee_slug(instance, **kwargs):
     if not instance.slug:
-        if instance.title_ru:
-            instance.slug = slugify(instance.title_ru, allow_unicode=True)+str(instance.id)
+        if instance.name_ru:
+            instance.slug = slugify(instance.name_ru, allow_unicode=True)+str(instance.id)
         else:
-            instance.slug = slugify(instance.title_en)+str(instance.id)
+            instance.slug = slugify(instance.name_en)+str(instance.id)
         instance.save()
 
 
 @receiver(post_save, sender=Faq)
 def create_faq_slug(instance, **kwargs):
     if not instance.slug:
-        if instance.title_ru:
-            instance.slug = slugify(instance.title_ru, allow_unicode=True)+str(instance.id)
+        if instance.question_ru:
+            instance.slug = slugify(instance.question_ru, allow_unicode=True)+str(instance.id)
         else:
-            instance.slug = slugify(instance.title_en)+str(instance.id)
+            instance.slug = slugify(instance.question_en)+str(instance.id)
         instance.save()
 
 
 @receiver(post_save, sender=Feedback)
 def create_feedback_slug(instance, **kwargs):
     if not instance.slug:
-        if instance.title_ru:
-            instance.slug = slugify(instance.title_ru, allow_unicode=True)+str(instance.id)
+        if instance.name_ru:
+            instance.slug = slugify(instance.name_ru, allow_unicode=True)+str(instance.id)
         else:
-            instance.slug = slugify(instance.title_en)+str(instance.id)
+            instance.slug = slugify(instance.name_en)+str(instance.id)
         instance.save()
 
 
@@ -101,8 +101,8 @@ def create_service_slug(instance, **kwargs):
 @receiver(post_save, sender=FaqCategory)
 def create_faq_category_slug(instance, **kwargs):
     if not instance.slug:
-        if instance.title_ru:
-            instance.slug = slugify(instance.title_ru, allow_unicode=True)+str(instance.id)
+        if instance.name_ru:
+            instance.slug = slugify(instance.name_ru, allow_unicode=True)+str(instance.id)
         else:
-            instance.slug = slugify(instance.title_en)+str(instance.id)
+            instance.slug = slugify(instance.name_en)+str(instance.id)
         instance.save()
