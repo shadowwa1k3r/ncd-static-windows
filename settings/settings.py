@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'slider',
     'extra',
     'edu',
+    'ads',
 ]
 
 MIDDLEWARE = [

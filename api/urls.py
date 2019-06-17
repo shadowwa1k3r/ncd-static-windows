@@ -12,4 +12,5 @@ urlpatterns = [
     path('extra/', include('api.extra.urls')),
     path('edu/', include('api.edu.urls')),
     path('profile/', include('api.profile.urls')),
+    path('ads/', include('api.ads.urls')),
 ]

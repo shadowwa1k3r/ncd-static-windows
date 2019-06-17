@@ -33,6 +33,7 @@ urlpatterns = [
     path('faq/', include('faq.urls')),
     path('extra/', include('extra.urls')),
     path('edu/', include('edu.urls')),
+    path('ads/', include('ads.urls')),
     path('api/', include('api.urls')),
     path('admin/', admin.site.urls),
 ]
